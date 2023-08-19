@@ -5,7 +5,7 @@ class VanTiltCard extends HTMLElement {
     // Initialize the content if it's not there yet.
     if (!this.content) {
       this.innerHTML = `
-        <ha-card header="Van Tilt">
+       <ha-card>
           <div class="card-content"></div>
         </ha-card>
       `;
@@ -20,22 +20,20 @@ class VanTiltCard extends HTMLElement {
     const yAngle = hass.states[entityY];
     const yAngleStr = yAngle ? yAngle.state : 'unavailable';
 
-    const xRotate = (parseFloat(xAngleStr) * 3).toString();
-    const yRotate = (parseFloat(yAngleStr) * 3).toString();
+    const xRotate = (parseFloat(xAngleStr) * 2).toString();
+    const yRotate = (parseFloat(yAngleStr) * 2).toString();
 
     this.content.innerHTML = `
-      <row style="display: flex;">
-        <div style="flex: 50%;text-align: center;">
-          <img src="/local/van-tilt-card/img/promaster_side.png" style="max-width: 100%;height: 100px;transform:rotate(${yRotate}deg);">
-          <hr>
-          <h1>${yAngleStr}°</h1>
-        </div>
-        <div style="flex: 50%;text-align: center;">
-          <img src="/local/van-tilt-card/img/promaster_back.png" style="max-width: 100%;height: 100px;transform:rotate(${xRotate}deg);">
-          <hr>
-          <h1>${xAngleStr}°</h1>
-        </div>
-      </row>
+    <row style="display: flex;">
+    <div style="flex: 60%;text-align: center;position: relative;">
+      <img src="/local/van-tilt-card/img/van_side.png" style="max-width: 100%;height: 100px;transform:rotate(${yRotate}deg);">
+      <h1 style="position: absolute;top: 20%;left: 65%;transform: translate(-50%, -50%); color:black">${yAngleStr}°</h1>
+    </div>
+    <div style="flex: 40%;text-align: center;position: relative;">
+      <img src="/local/van-tilt-card/img/van_back.png" style="max-width: 100%;height: 100px;transform:rotate(${xRotate}deg);">
+      <h1 style="position: absolute;top: 20%;left: 60%;transform: translate(-50%, -50%); color:black">${xAngleStr}°</h1>
+    </div>
+  </row>  
     `;
   }
 

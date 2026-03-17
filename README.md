@@ -21,6 +21,23 @@ Optional configuration supported by the card:
 - `decimals`
 - `buttons`
 
+The built-in visual editor now supports:
+
+- Side-to-side sensor
+- Front-to-back sensor
+- Side-to-side zero
+- Front-to-back zero
+- Visual multiplier
+- Invert side-to-side
+- Invert front-to-back
+- Optional button entity selection for:
+  - Rear Left Up
+  - Rear Left Down
+  - Rear Right Up
+  - Rear Right Down
+  - Driving Preset
+  - Auto Level
+
 ### Multiplier
 
 `multiplier` only affects the image rotation amount (visual sensitivity). It does not change the sensor values shown in text.
@@ -48,6 +65,8 @@ After replacing images, refresh the dashboard (or clear browser cache) to see th
 ### Buttons
 
 Buttons are optional and configured with the `buttons` list.
+
+You can add them either in YAML or through the visual editor.
 
 How button actions work:
 
